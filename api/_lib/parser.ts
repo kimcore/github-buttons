@@ -5,7 +5,7 @@ import { ParsedRequest } from './types';
 export function parseRequest(req: IncomingMessage) {
     console.log('HTTP ' + req.url);
     const { pathname, query } = parse(req.url || '/', true);
-    const { style, fontSize, fontWeight, width, height } = (query || {});
+    const { style, fontSize, width, height } = (query || {});
 
     if (Array.isArray(style)) {
         throw new Error('Expected a single style');
@@ -15,12 +15,6 @@ export function parseRequest(req: IncomingMessage) {
     }
     if (fontSize && (Number(fontSize) > 100 || Number(fontSize) < 1)) {
         throw new Error('Expected a valid fontSize');
-    }
-    if (fontWeight && !Number.isInteger(Number(fontWeight))) {
-        throw new Error('Expected a valid fontWeight');
-    }
-    if (fontWeight && ![100, 200, 300, 400, 500, 600, 700, 800, 900].includes(Number(fontWeight))) {
-        throw new Error('Expected a valid fontWeight');
     }
     if (width && !Number.isInteger(Number(width))) {
         throw new Error('Expected a valid width');
@@ -52,7 +46,6 @@ export function parseRequest(req: IncomingMessage) {
         text: decodeURIComponent(text),
         style: style == 'primary' ? 'primary' : 'secondary',
         fontSize: Number(fontSize) || 14,
-        fontWeight: Number(fontWeight) || 500,
         width: Number(width) || 105,
         height: Number(height) || 32
     };
