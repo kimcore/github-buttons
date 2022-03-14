@@ -5,7 +5,7 @@ import { ParsedRequest } from './types';
 export function parseRequest(req: IncomingMessage) {
     console.log('HTTP ' + req.url);
     const { pathname, query } = parse(req.url || '/', true);
-    const { style, fontSize, width, height } = (query || {});
+    const { style, fontSize, fontWeight, width, height } = (query || {});
 
     if (Array.isArray(style)) {
         throw new Error('Expected a single style');
@@ -13,10 +13,25 @@ export function parseRequest(req: IncomingMessage) {
     if (fontSize && !Number.isInteger(Number(fontSize))) {
         throw new Error('Expected a valid fontSize');
     }
+    if (fontSize && (Number(fontSize) > 100 || Number(fontSize) < 1)) {
+        throw new Error('Expected a valid fontSize');
+    }
+    if (fontWeight && !Number.isInteger(Number(fontWeight))) {
+        throw new Error('Expected a valid fontWeight');
+    }
+    if (fontWeight && (Number(fontWeight) > 900 || Number(fontWeight) < 100)) {
+        throw new Error('Expected a valid fontWeight');
+    }
     if (width && !Number.isInteger(Number(width))) {
         throw new Error('Expected a valid width');
     }
+    if (width && (Number(width) > 4096 || Number(width) < 1)) {
+        throw new Error('Expected a valid width');
+    }
     if (height && !Number.isInteger(Number(height))) {
+        throw new Error('Expected a valid height');
+    }
+    if (height && (Number(height) > 4096 || Number(height) < 1)) {
         throw new Error('Expected a valid height');
     }
 
@@ -37,6 +52,7 @@ export function parseRequest(req: IncomingMessage) {
         text: decodeURIComponent(text),
         style: style == 'primary' ? 'primary' : 'secondary',
         fontSize: Number(fontSize) || 14,
+        fontWeight: Number(fontWeight) || 500,
         width: Number(width) || 105,
         height: Number(height) || 32
     };

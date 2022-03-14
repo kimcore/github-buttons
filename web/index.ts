@@ -129,6 +129,18 @@ const fontSizeOptions: DropdownOption[] = Array
     .map((_, i) => 14 + i)
     .map(n => ({text: n + 'px', value: n}));
 
+const fontWeightOptions: DropdownOption[] = [
+    {text: 'Thin', value: 100},
+    {text: 'ExtraLight', value: 200},
+    {text: 'Light', value: 300},
+    {text: 'Regular', value: 400},
+    {text: 'Medium', value: 500},
+    {text: 'SemiBold', value: 600},
+    {text: 'Bold', value: 700},
+    {text: 'ExtraBold', value: 800},
+    {text: 'Black', value: 900}
+];
+
 interface AppState extends ParsedRequest {
     loading: boolean;
     showToast: boolean;
@@ -168,6 +180,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
     const {
         fileType = 'png',
         fontSize = 14,
+        fontWeight = 500,
         style = 'secondary',
         text = 'Button',
         width = 105,
@@ -182,6 +195,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
     url.pathname = `${encodeURIComponent(text)}.${fileType}`;
     url.searchParams.append('style', style);
     url.searchParams.append('fontSize', fontSize.toString());
+    url.searchParams.append('fontWeight', fontWeight.toString());
     url.searchParams.append('width', width.toString());
     url.searchParams.append('height', height.toString());
     return H('div',
@@ -248,6 +262,14 @@ const App = (_: any, state: AppState, setState: SetState) => {
                         options: fontSizeOptions,
                         value: fontSize,
                         onchange: (val: number) => setLoadingState({fontSize: val})
+                    })
+                }),
+                H(Field, {
+                    label: 'Font Weight',
+                    input: H(Dropdown, {
+                        options: fontWeightOptions,
+                        value: fontWeight,
+                        onchange: (val: number) => setLoadingState({fontWeight: val})
                     })
                 }),
                 H(Field, {

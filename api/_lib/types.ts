@@ -6,6 +6,7 @@ export interface ParsedRequest {
     text: string;
     style: ButtonStyle;
     fontSize: number;
+    fontWeight: number;
     width: number;
     height: number;
 }
