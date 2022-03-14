@@ -19,7 +19,7 @@ export function parseRequest(req: IncomingMessage) {
     if (fontWeight && !Number.isInteger(Number(fontWeight))) {
         throw new Error('Expected a valid fontWeight');
     }
-    if (fontWeight && (Number(fontWeight) > 900 || Number(fontWeight) < 100)) {
+    if (fontWeight && ![100, 200, 300, 400, 500, 600, 700, 800, 900].includes(Number(fontWeight))) {
         throw new Error('Expected a valid fontWeight');
     }
     if (width && !Number.isInteger(Number(width))) {

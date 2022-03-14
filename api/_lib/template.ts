@@ -2,10 +2,6 @@ import {readFileSync} from 'fs';
 import {sanitizeHtml} from './sanitizer';
 import {ParsedRequest} from './types';
 
-const twemoji = require('twemoji');
-const twOptions = {folder: 'svg', ext: '.svg'};
-const emojify = (text: string) => twemoji.parse(text, twOptions);
-
 const thin = readFileSync(`${__dirname}/../_fonts/Pretendard-Thin.woff2`).toString('base64');
 const extraLight = readFileSync(`${__dirname}/../_fonts/Pretendard-ExtraLight.woff2`).toString('base64');
 const light = readFileSync(`${__dirname}/../_fonts/Pretendard-Light.woff2`).toString('base64');
@@ -114,7 +110,7 @@ export function getHtml(parsedReq: ParsedRequest) {
         ${getCss(style, fontSize, fontWeight, height)}
     </style>
     <body>
-            <div class="btn">${emojify(sanitizeHtml(text))}</div>
+            <div class="btn">${sanitizeHtml(text)}</div>
     </body>
 </html>`;
 }
