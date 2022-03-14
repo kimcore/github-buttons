@@ -2,7 +2,7 @@ import {readFileSync} from 'fs';
 import {sanitizeHtml} from './sanitizer';
 import {ParsedRequest} from './types';
 
-const pretendard = readFileSync(`${__dirname}/../_fonts/Pretendard-Medium.woff2`).toString('base64');
+const pretendard = readFileSync(`${__dirname}/../_fonts/Pretendard-SemiBold.woff2`).toString('base64');
 
 // @ts-ignore
 function getCss(style: ButtonStyle, fontSize: number, height: number) {
@@ -17,14 +17,14 @@ function getCss(style: ButtonStyle, fontSize: number, height: number) {
     @font-face {
         font-family: 'Pretendard';
         font-style: normal;
-        font-weight: 500;
+        font-weight: 600;
         src: url(data:font/woff2;charset=utf-8;base64,${pretendard}) format('woff2');
     }
 
     html,
     body {
         font-family: 'Pretendard', sans-serif;
-        font-weight: 500;
+        font-weight: 600;
         margin: 0;
         background: transparent;
     }
