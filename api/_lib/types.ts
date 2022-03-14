@@ -1,13 +1,11 @@
 export type FileType = 'png' | 'jpeg';
-export type Theme = 'light' | 'dark';
+export type ButtonStyle = 'primary' | 'secondary';
 
 export interface ParsedRequest {
     fileType: FileType;
     text: string;
-    theme: Theme;
-    md: boolean;
-    fontSize: string;
-    images: string[];
-    widths: string[];
-    heights: string[];
+    style: ButtonStyle;
+    fontSize: number;
+    width: number;
+    height: number;
 }

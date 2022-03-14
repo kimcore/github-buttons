@@ -7,14 +7,6 @@ body {
   box-sizing: border-box;
 }
 
-a {
-    cursor: pointer;
-    color: #0076FF;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border-bottom: 1px solid white;
-}
-
 a:hover {
     border-bottom: 1px solid #0076FF;
 }
@@ -42,12 +34,12 @@ footer {
 
 .pull-left {
     min-width: 50%;
-    display: flex;
-    justify-content: flex-end;
 }
 
 .pull-right {
     min-width: 50%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 button {
@@ -263,7 +255,7 @@ label {
     height: 60px;
     align-items: center;
     justify-content: space-between;
-    
+
     box-shadow: 0 4px 9px rgba(0,0,0,0.12);
     font-size: 14px;
     display: flex;
@@ -284,20 +276,16 @@ img {
 }
 
 .image-wrapper {
+    text-align: center;
     display: block;
-    cursor: pointer;
     text-decoration: none;
-    background: #fff;
-    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.12);
-    border-radius: 5px;
-    margin-bottom: 50px;
     transition: all 0.2s ease;
+    margin-bottom: 50px;
     max-width: 100%;
 }
 
-.image-wrapper:hover {
-    box-shadow: 0 1px 16px rgba(0,0,0,0.1);
-    border-color: #ddd;
+.copy-wrapper {
+    display: flex;
 }
 
 
@@ -312,7 +300,7 @@ img {
 
 @media (max-width: 900px) {
     .split {
-        flex-wrap: wrap; 
+        flex-wrap: wrap;
     }
 
     .field-label {
@@ -354,10 +342,10 @@ img {
   }
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    margin: 0; 
+    margin: 0;
 }
