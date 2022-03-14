@@ -15,19 +15,22 @@ function getCss(style: ButtonStyle, fontSize: number, height: number) {
         color = 'white'
     }
     return `
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+    
     html,
     body {
+        font-family: Pretendard;
         margin: 0;
         background: transparent;
         font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
     }
 
     .btn {
-        height: ${height - 2}px;
+        height: ${height - 12}px;
         font-size: ${fontSize}px;
         font-weight: 500;
         vertical-align: middle;
-        line-height: ${height - 2}px;
+        line-height: ${height - 12}px;
         text-align: center;
         color: ${color};
         padding: 5px 16px;

@@ -171,7 +171,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
         style = 'secondary',
         text = 'Button',
         width = 105,
-        height = 30,
+        height = 32,
         showToast = false,
         messageToast = '',
         loading = true,

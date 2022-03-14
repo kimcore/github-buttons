@@ -38,7 +38,7 @@ export function parseRequest(req: IncomingMessage) {
         style: style == 'primary' ? 'primary' : 'secondary',
         fontSize: Number(fontSize) || 14,
         width: Number(width) || 105,
-        height: Number(height) || 30
+        height: Number(height) || 32
     };
     return parsedRequest;
 }
