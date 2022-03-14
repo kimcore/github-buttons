@@ -27,7 +27,6 @@ function getCss(style: ButtonStyle, fontSize: number, height: number) {
         font-weight: 500;
         margin: 0;
         background: transparent;
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
     }
 
     .btn {
