@@ -16,8 +16,8 @@ function getCss(style: ButtonStyle, fontSize: number, height: number) {
     return `
     @font-face {
         font-family: 'Pretendard';
+        font-style: normal;
         font-weight: 500;
-        font-display: swap;
         src: url(data:font/woff2;charset=utf-8;base64,${pretendard}) format('woff2');
     }
 
